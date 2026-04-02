@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main() {
-    int n, i, k = 0, j = 0;
+    int n, i;
     int *vet, *vetPar, *vetImpar, qtdPar = 0, qtdImpar = 0;
 
     printf("Digite o tamanho do vetor: ");
@@ -12,31 +12,46 @@ int main() {
 
     for(i=0; i<n; i++){
         printf("Digite os numeros dos vetores: ");
-        scanf("%d", &*(vet+i));
+        scanf("%d", &vet[i]);
     }
 
     for(i=0; i<n; i++){
-        k = vet[i];
-        j = vet[i];
-        
-        if(*(vet+k) % 2 == 0){
+        if(*(vet+i) % 2 == 0){
             qtdPar++;
-            k++;
         }
 
-        else if(*(vet+j) % 2 != 0){
+        else if(*(vet+i) % 2 != 0){
             qtdImpar++;
-            j++;
         }
     }
 
-    printf("Par: %d\n", qtdImpar);
-    printf("Impar: %d\n", qtdPar);
+    printf("Par: %d\n", qtdPar);
+    printf("Impar: %d\n", qtdImpar);
 
     vetPar = (int*) malloc(qtdPar * sizeof(int));
     vetImpar = (int*) malloc(qtdImpar * sizeof(int));
 
-        
+    for(i=0; i<qtdPar; i++){
+        if(vet[i] % 2 == 0){
+            vetPar[i] = vet[i];
+        }
+    }
+
+    for(i=0; i<qtdImpar; i++){
+        if(vet[i] % 2 != 0){
+            vetImpar[i] = vet[i];
+        }
+    }
+
+    for(i=0; i<qtdPar; i++){
+        printf("%d ", vetPar[i]);
+    }
+
+    printf("\n");
+
+    for(i=0; i<qtdImpar; i++){
+        printf("%d ", vetImpar[i]);
+    }
 
     // limpar
     free(vet);
