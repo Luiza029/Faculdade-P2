@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int linha, coluna, i, j;
+    int **matriz;
+
+    printf("Digite os valores da Linha e da Coluna: ");
+    scanf("%d %d", &linha, &coluna);
+
+    matriz = (int**) malloc(linha * sizeof(int*));
+
+    for(i=0; i<linha; i++){
+        matriz[i] = (int*) malloc(coluna * sizeof(int));
+    }
+
+    for(i=0; i<linha; i++){
+        for(j=0; j<coluna; j++){
+            matriz[i][j] = i * j;
+        }
+    }
+
+    for(i=0; i<linha; i++){
+        for(j=0; j<coluna; j++){
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    for(i=0; i<linha; i++){
+        free(matriz[i]);
+    }
+
+    free(matriz);
+    matriz = NULL;
+
+    return 0;
+}

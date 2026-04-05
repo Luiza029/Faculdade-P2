@@ -22,7 +22,7 @@ int main() {
         printf("Digite o novo tamanho do vetor: ");
         scanf("%d", &tam);
 
-        vet = realloc(vet, tam * sizeof(int)); // Na funcao realoc, se passa como parametro o vetor e o novo tamnho do vetor vezes o tipo
+        vet = realloc(vet, tam * sizeof(int)); // Na funcao realoc, passa como parametro o vetor e o novo tamnho do vetor vezes o tipo
 
         if(vet){
             printf("Tamnho do vetor: %d\n", tam);
