@@ -7,7 +7,7 @@ int main() {
     printf("Digite o tamanho do vetor: ");
     scanf("%d", &n);
 
-    vetor = (int*) malloc (1 * sizeof(int));
+    vetor = (int*) malloc (n * sizeof(int));
 
     for(i=0; i<n; i++){
         printf("Digite %d valor: ", i);
@@ -25,7 +25,7 @@ int main() {
     
     if(p>=0 && p<=n){
 
-        vetor = (int*) realloc(vetor, 1 * sizeof(int));
+        vetor = (int*) realloc(vetor, (n+1) * sizeof(int));
         for(i=n; i>p; i--){
             vetor[i] = vetor[i - 1];    
         }

@@ -28,10 +28,10 @@ int main() {
         if(x == vet[i]){
             for(j=i; j<n-1; j++){ // j == i pq quando achar x no vetor, vai pegar o indice e andar com o restante para a esquerda
                 vet[j] = vet[j+1];
-                achou = 1;
             }
+            achou = 1;
+            break;
         }
-        break;
     }
 
     if(achou == 0){
