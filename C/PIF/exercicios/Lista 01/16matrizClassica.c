@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-    int linha, coluna, **matriz, i, j;
+    int linha, coluna, **matriz, i, j, chave;
 
     printf("Digite o tamanho de linhas e colunas: ");
     scanf("%d %d", &linha, &coluna);
@@ -14,10 +14,13 @@ int main() {
         matriz[i] = (int*) malloc(coluna * sizeof(int));
     }
 
+    printf("Digite um numero: ");
+    scanf("%d", &chave);
+    srand(chave);
+
     for(i=0; i<linha; i++){
         for(j=0; j<coluna; j++){
-            printf("Preencha o valor do elemento[%d, %d]: ", i, j);
-            scanf("%d", &matriz[i][j]);
+            matriz[i][j] = rand() % 100;
         }
     }
 
