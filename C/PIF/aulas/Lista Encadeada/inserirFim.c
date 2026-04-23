@@ -29,7 +29,7 @@ void inserirFim(Lista *lista, int valor){
     No *novo = malloc(sizeof(No));
 
     if(novo){
-        novo -> valor = valor;
+        novo -> valor = valor; // guarda o numero dentro do nó
         novo -> proximo = NULL; // define como o ultimo
 
         if(lista -> inicio == NULL){ // se a lista estiver vazia, o novo nó vira o primeiro (e o ultimo tbm)
