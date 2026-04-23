@@ -12,8 +12,6 @@ typedef struct Lista{
     int tam;
 }Lista;
 
-
-
 void inserirInicio(Lista *lista, int valor){
     No *novo = malloc(sizeof(novo));
 
