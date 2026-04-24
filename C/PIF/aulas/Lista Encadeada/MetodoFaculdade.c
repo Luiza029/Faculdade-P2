@@ -27,8 +27,8 @@ int main() {
 
     Node* head = NULL;
     add(&head, 10);
-    add(&head, 10);
-    add(&head, 10);
+    add(&head, 20);
+    add(&head, 30);
 
     Node* temp = head;
 
