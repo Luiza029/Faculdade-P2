@@ -1,0 +1,29 @@
+🔗 Exercícios de Lista Encadeada
+🟢 Nível Básico
+
+1- Criar e imprimir — Implemente uma lista encadeada simples e imprima todos os elementos.
+2- Inserção no início — Insira um elemento no começo da lista.
+3- Inserção no fim — Insira um elemento no final da lista.
+4- Busca — Verifique se um elemento existe na lista.
+5= Tamanho da lista — Retorne o número de nós da lista.
+6= Remoção pelo valor — Remova o primeiro nó que contém um determinado valor.
+
+
+🟡 Nível Intermediário
+
+7- Inserção em posição específica — Insira um elemento na posição k da lista.
+8- Inverter a lista — Inverta a ordem dos nós (sem usar estrutura auxiliar).
+9- Detectar ciclo — Verifique se a lista tem um ciclo (algoritmo de Floyd).
+10- Remover duplicatas — Remova nós com valores repetidos.
+11- Encontrar o meio — Retorne o nó do meio da lista em uma única passagem.
+12- Mesclar duas listas ordenadas — Una duas listas já ordenadas em uma só, mantendo a ordem.
+
+
+🔴 Nível Avançado
+
+13- Ordenar a lista — Implemente o Merge Sort em uma lista encadeada.
+14- Remover o k-ésimo nó a partir do fim — Em uma única passagem pela lista.
+15- Verificar palíndromo — Verifique se os valores da lista formam um palíndromo.
+16- Interseção de duas listas — Encontre o nó onde duas listas se encontram.
+17- Lista duplamente encadeada — Reimplemente as operações básicas com prev e next.
+18- Lista circular — Implemente uma lista encadeada circular com inserção e remoção.
