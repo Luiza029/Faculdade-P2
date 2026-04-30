@@ -15,21 +15,20 @@ Node *CriarLista(int valor){
     return novo;
 }
 
-Node *inserirFinal(Node *head, int valor){
+// a funcao sendo um void
+void inserirFinal(Node **head, int valor){
     Node *novo = CriarLista(valor);
 
-    if(head == NULL){
+    if(*head == NULL){
         return novo;
     } else{
-        Node *aux = head;
+        Node *aux = *head;
 
         while(aux -> proximo != NULL){
             aux = aux -> proximo;
         }
 
         aux -> proximo = novo;
-
-        return head; 
     }
 }
 
@@ -54,7 +53,7 @@ int main() {
     for(i=0; i<n; i++){
         printf("Digite: ");
         scanf("%d", &valor);
-        head = inserirFinal(head, valor);
+        inserirFinal(&head, valor);
     }
 
     printf("Sua Lista: ");
