@@ -42,10 +42,10 @@ Node *InserirNaPosicao(Node *head, int valorP, int posicao){
         aux = aux -> proximo;
     }
     
-    if(aux != NULL)
+    if(aux != NULL){
         novo -> proximo = aux -> proximo;
-    aux -> proximo = novo;
-
+        aux -> proximo = novo;   
+    }
     return head;
 }
 

@@ -37,17 +37,21 @@ void Buscar(Node *head, int valorP){
     Node *aux = head;
     int achou = 0;
 
-    while(aux != NULL){ // normal
-        if(aux -> valor == valorP){
-            printf("O numero %d esta na lista", valorP);
-            achou = 1;
-            break;
+    if(head == NULL){
+        printf("Lista vazia");
+    } else{ 
+        while(aux != NULL){ // normal
+            if(aux -> valor == valorP){
+                printf("O numero %d esta na lista", valorP);
+                achou = 1;
+                break;
+            }
+            aux = aux ->proximo;
         }
-        aux = aux ->proximo;
-    }
-
-    if(achou == 0)
+        
+        if(achou == 0)
         printf("O numero %d NAO esta na lista", valorP);
+    }
 }
 
 void Imprimir(Node *head){
