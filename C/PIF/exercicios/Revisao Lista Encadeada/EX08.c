@@ -20,24 +20,20 @@ void add(Node **head, int valor){
 
     if(*head == NULL){
         *head = novo;
-    } else{
+    } 
+    else{
         Node *aux = *head;
 
         while(aux -> proximo != NULL){
-            aux = aux->proximo;
+            aux = aux ->proximo;
         }
 
         aux ->proximo = novo;
     }
 }
 
-void removerPrimeiro(Node **head){
-    if(*head == NULL){
-        return;
-    } else{
-        Node *aux = *head;
-        
-    }
+void removerUltimo(Node **head){
+
 }
 
 void imprimir(Node **head){
@@ -56,14 +52,12 @@ int main() {
 
     add(&head, 10);
     add(&head, 20);
-    add(&head, 30);
-
-    printf("Lista Normal: ");
+    add(&head, 60);
+    add(&head, 40);
+    add(&head, 50);
+    add(&head, 11);
+    
     imprimir(&head);
-
-    printf("\nRemoveu Primeiro: ");
-    removerPrimeiro(&head);
-    imprimir(&head);
-
+    
     return 0;
 }

@@ -54,7 +54,7 @@ int main() {
     addInicio(&head, 30);
 
     Imprimir(&head);
-    Node *r = Busca(head, 13);
+    Node *r = Busca(head, 10);
     if(r != NULL){
         printf("\nAchou: %d", r->valor);
     } else{

@@ -20,23 +20,35 @@ void add(Node **head, int valor){
 
     if(*head == NULL){
         *head = novo;
-    } else{
+    }
+    else{
         Node *aux = *head;
 
         while(aux -> proximo != NULL){
             aux = aux->proximo;
         }
 
-        aux ->proximo = novo;
+        aux->proximo = novo;
     }
 }
 
-void removerPrimeiro(Node **head){
+int Maior_valor(Node **head){
+
     if(*head == NULL){
-        return;
+        return -9999;
     } else{
-        Node *aux = *head;
-        
+        int maior = (*head) ->valor; // pega o primeiro valor
+        Node *aux = (*head) ->proximo; // pega o segundo valor
+
+        while(aux != NULL){
+            if(aux ->valor > maior){
+                maior = aux->valor;
+            }
+
+            aux = aux ->proximo;
+        }
+
+        return maior;
     }
 }
 
@@ -56,14 +68,15 @@ int main() {
 
     add(&head, 10);
     add(&head, 20);
-    add(&head, 30);
-
-    printf("Lista Normal: ");
+    add(&head, 60);
+    add(&head, 40);
+    add(&head, 50);
+    add(&head, 11);
+    
     imprimir(&head);
+    int r = Maior_valor(&head);
 
-    printf("\nRemoveu Primeiro: ");
-    removerPrimeiro(&head);
-    imprimir(&head);
+    printf("\nMaior: %d", r);
 
     return 0;
 }
