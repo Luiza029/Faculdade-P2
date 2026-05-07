@@ -33,7 +33,21 @@ void add(Node **head, int valor){
 }
 
 void removerUltimo(Node **head){
+    if(*head == NULL){
+        return;
+    } else if((*head) ->proximo == NULL){
+        free(*head);
+        *head = NULL;
+    } else{ 
+        Node *aux = *head;
 
+        while(aux -> proximo ->proximo != NULL){ // 10 20 30 40 aux ->proximo -> proximo, eu paro no 30, pois se eu usar o aux -> proximo eu paro no 40, e 40 é o no que eu quero remover 
+            aux = aux -> proximo;
+        }
+
+        free(aux -> proximo); // libera o ultimo no
+        aux ->proximo = NULL;
+    }
 }
 
 void imprimir(Node **head){
@@ -57,6 +71,11 @@ int main() {
     add(&head, 50);
     add(&head, 11);
     
+    printf("Lista antes de remover: ");
+    imprimir(&head);
+
+    printf("\nDps de remover o ultimo: ");
+    removerUltimo(&head);
     imprimir(&head);
     
     return 0;

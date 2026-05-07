@@ -7,8 +7,9 @@ typedef struct Node{
     struct Node *proximo;
 }Node;
 
-Node *criarLista(int valor){
+Node *Criar(int valor){
     Node *novo = malloc(sizeof(Node));
+
     novo -> valor = valor;
     novo -> proximo = NULL;
 
@@ -16,56 +17,63 @@ Node *criarLista(int valor){
 }
 
 void add(Node **head, int valor){
-    Node *novo = criarLista(valor);
+    Node *novo = Criar(valor);
 
     if(*head == NULL){
         *head = novo;
     } else{
         Node *aux = *head;
 
-        while(aux -> proximo != NULL){
-            aux = aux->proximo;
+        while(aux ->proximo != NULL){
+            aux = aux -> proximo;
         }
 
         aux ->proximo = novo;
     }
 }
 
-void removerPrimeiro(Node **head){
+void removerNo(Node **head, int valor){ //10 20 30 40 50
     if(*head == NULL){
         return;
     } else{
         Node *aux = *head;
-        
-        *head = aux ->proximo; // avanca um no
-        free(aux);
+
+        while(aux ->proximo != NULL && aux -> proximo ->valor != valor){
+            aux = aux -> proximo;
+        }
+
+        free(aux ->proximo); // primeiro pois pode perder o endereco do 40
+        aux ->proximo = aux ->proximo ->proximo; // aux -> proximo: que esta parado no nó 30, pega o endereço do 40 (nao o valor), e aux -> proximo -> proximo, pega o endereco de 50
     }
 }
 
 void imprimir(Node **head){
-    if(*head){
+    if(*head != NULL){
         Node *aux = *head;
 
         while(aux != NULL){
             printf("%d ", aux ->valor);
             aux = aux -> proximo;
         }
+    } else{
+        printf("Lista vazia");
     }
 }
 
 int main() {
+
     Node *head = NULL;
 
     add(&head, 10);
     add(&head, 20);
     add(&head, 30);
+    add(&head, 40);
+    add(&head, 50);
 
-    printf("Lista Normal: ");
     imprimir(&head);
-
-    printf("\nRemoveu Primeiro: ");
-    removerPrimeiro(&head);
+    removerNo(&head, 40);
+    printf("\n");
     imprimir(&head);
-
+    
     return 0;
 }
