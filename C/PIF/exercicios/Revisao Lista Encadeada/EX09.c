@@ -17,19 +17,8 @@ Node *criarLista(int valor){
 
 void add(Node **head, int valor){
     Node *novo = criarLista(valor);
-
-    if(*head == NULL){
-        *head = novo;
-    }
-    else{
-        Node *aux = *head;
-
-        while(aux -> proximo != NULL){
-            aux = aux->proximo;
-        }
-
-        aux->proximo = novo;
-    }
+    novo ->proximo = *head;
+    *head = novo;
 }
 
 int Maior_valor(Node **head){

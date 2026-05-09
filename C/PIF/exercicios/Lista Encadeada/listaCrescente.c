@@ -15,30 +15,34 @@ Node *criarLista(int valor){
     return novo;
 }
 
-void add(Node **head, int valor){
+void addOrdenada(Node **head, int valor){
     Node *novo = criarLista(valor);
 
-    if(*head == NULL){
+    if(*head == NULL || valor < (*head) ->valor){
+        novo ->proximo = *head;
         *head = novo;
     } else{
         Node *aux = *head;
-
-        while(aux -> proximo != NULL){
+        Node *anterior =*head;
+        while(aux != NULL && aux->valor < valor){
+            anterior = aux;
             aux = aux->proximo;
         }
-
-        aux ->proximo = novo;
+        anterior ->proximo = novo;
+        novo->proximo = aux;
     }
 }
 
-void removerPrimeiro(Node **head){
-    if(*head == NULL){
-        printf("Lista vazia!");
-    } else{
-        Node *aux = *head;
-        
-        *head = aux ->proximo; // avanca um no
-        free(aux);
+Node *misturar(Node *l1, Node *l2){
+    Node *head = NULL;
+    head = criarLista(l1->valor);
+    Node *aux = head;
+
+    while(l1 != NULL || l2 != NULL){
+        if(l2 != NULL){
+            aux = aux ->proximo;
+            l2 = l2 ->proximo;
+        }
     }
 }
 
@@ -56,16 +60,12 @@ void imprimir(Node **head){
 int main() {
     Node *head = NULL;
 
-    add(&head, 10);
-    add(&head, 20);
-    add(&head, 30);
+    addOrdenada(&head, 10);
+    addOrdenada(&head, 50);
+    addOrdenada(&head, 90);
+    addOrdenada(&head, 20);
 
-    printf("Lista Normal: ");
+    printf("Lista: ");
     imprimir(&head);
-
-    printf("\nRemoveu Primeiro: ");
-    removerPrimeiro(&head);
-    imprimir(&head);
-
     return 0;
 }
