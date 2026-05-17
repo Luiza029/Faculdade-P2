@@ -10,6 +10,7 @@ typedef struct Node{
 Node *criar(int valor){
     Node *novo = malloc(sizeof(Node));
     novo ->valor = valor;
+    novo ->proximo = NULL;
     
 }
 
